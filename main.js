@@ -1,7 +1,7 @@
 let playBoard=document.querySelector(".play-board");
 let controls=document.querySelectorAll(".icon i");
 let scoreElement=document.querySelector(".score");
-
+let highScoreElement=document.querySelector(".high-score");
 
 let gameOver=false;
 let foodX,foodY;
@@ -19,7 +19,7 @@ const changeFoodPosition=()=>{
 
 const handleGameOver=()=>{
   clearInterval(setIntervalid);
-  alert("Game Over");
+  alert("Game Over, I LOVE YOU PUSPA♥️");
   location.reload();
 }
 
@@ -42,7 +42,7 @@ controls.forEach((key)=>{
   
   key.addEventListener('click',()=>{
     changeDirection({key:key.dataset.key})
-    console.log(key)
+    
   })
   
 })
@@ -56,7 +56,22 @@ const initgame=()=>{
      changeFoodPosition();
      snakeBody.push([foodX,foodY]);
      score++;
-     scoreElement.innerHTML=`Score: ${score}`
+    
+ 
+
+  if(score > localStorage.getItem("highscore")){
+    
+    localStorage.setItem("highscore",score);
+  }
+    
+    
+     
+     
+     
+ scoreElement.innerHTML=`Score: ${score}`
+ 
+ 
+ 
    }
    
    for(let i= snakeBody.length -1;i>0;i--){
@@ -84,3 +99,6 @@ changeFoodPosition();
 setIntervalid=setInterval(initgame,125);
 
 document.addEventListener('keydown',changeDirection);
+
+let nb=localStorage.getItem("highscore");
+highScoreElement.innerHTML=`High Score: ${nb}`

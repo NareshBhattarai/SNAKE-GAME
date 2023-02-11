@@ -42,6 +42,7 @@
   justify-content: space-evenly;
   color:white;
   background-color: darkred;
+  height: 40px;
   
   
  
@@ -52,4 +53,19 @@
   
  
  
+ 
+ 
+}
+marquee{
+  color:red;
+  font-weight: bolder;
+  margin-top: 50px;
+  
+  font-size: 30px;
+}
+
+h6{
+  margin-left: 5px;
+  margin-top: 20px;
+
 }
